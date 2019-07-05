@@ -1,0 +1,8 @@
+div {
+  border: 1px solid red;
+}
+
+div div {
+  border: 1px solid blue;
+}
+/*# sourceMappingURL=index.css.map */
