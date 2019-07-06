@@ -1,0 +1,17 @@
+$co: #bf0000;
+$bg: #000;
+
+.outer {
+  color: $co;
+  font-size: 1000px;
+  background: $bg;
+  display: flex;
+
+  .inner {
+    font-size: 10px;
+    flex: 1 0 auto;
+    @supports (display: grid) {
+      background: $co;
+    }
+  }
+}

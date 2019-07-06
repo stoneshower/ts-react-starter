@@ -40,7 +40,7 @@ const webpackConfig = (env, argv) => {
           exclude: /node_modules/,
         },
         {
-          test: /\.(sc|sa|c)ss$/,
+          test: /\.(pc|c)ss$/,
           use: [
             {
               loader: isProd ? MiniCssExtractPlugin.loader : 'style-loader',
@@ -49,14 +49,14 @@ const webpackConfig = (env, argv) => {
               loader: 'css-loader',
               options: {
                 importLoaders: 1,
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-                camelCase: true,
                 sourceMap: !isProd,
-                modules: true,
+                modules: {
+                  localIdentName: '[name]__[local]--[hash:base64:5]',
+                },
               },
             },
             {
-              loader: 'sass-loader',
+              loader: 'postcss-loader',
             },
           ],
         },
@@ -110,7 +110,7 @@ const webpackConfig = (env, argv) => {
       }),
       new WebpackBuildNotifierPlugin(),
       new MiniCssExtractPlugin({
-        filename: './dist/css/style.css',
+        filename: './style.css',
         chunkFilename: '[id].css',
       }),
       new webpack.EnvironmentPlugin({
