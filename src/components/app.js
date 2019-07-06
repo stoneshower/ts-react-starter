@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './style.css';
 
-
 const App = () => (
   <>
     <div className={style.outer}>Test</div>
