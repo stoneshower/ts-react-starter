@@ -26,7 +26,7 @@ const webpackConfig = (env, argv) => {
   const config = {
     devtool,
     entry: {
-      app: './src/index.js',
+      app: './src/index.tsx',
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -35,7 +35,12 @@ const webpackConfig = (env, argv) => {
     module: {
       rules: [
         {
+          test: /\.tsx?$/,
+          loader: 'ts-loader',
+        },
+        {
           test: /\.js$/,
+          enforce: 'pre',
           loader: 'babel-loader',
           exclude: /node_modules/,
         },
@@ -119,7 +124,7 @@ const webpackConfig = (env, argv) => {
       }),
     ],
     resolve: {
-      extensions: ['.js', '.jsx', '.scss', 'html'],
+      extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', 'html'],
     },
     stats: {
       all: false,
@@ -132,7 +137,7 @@ const webpackConfig = (env, argv) => {
       errors: true,
       warnings: true,
       moduleTrace: true,
-      errorDetails: true
+      errorDetails: true,
     },
   };
 

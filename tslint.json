@@ -1,0 +1,21 @@
+{
+  "extends": ["tslint-config-standard"],
+  "rules": {
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape",
+      "jsx-double"
+    ],
+    "traling-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "always"
+      }
+    ],
+    "eofline": true,
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  }
+}
