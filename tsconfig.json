@@ -4,9 +4,17 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
-    "module": "commonjs",
+    "module": "es2015",
     "target": "es5",
     "jsx": "react",
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "allowJs": true,
+    "declaration": false,
+    "lib": [
+      "dom",
+      "es2015",
+      "es5",
+      "es6"
+    ]
   }
 }

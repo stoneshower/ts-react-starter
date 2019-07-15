@@ -1,19 +1,24 @@
 {
-  "name": "ffbase",
+  "name": "ts-react-template",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "preinstall": "$npm_execpath --silent run checkyarn",
-    "checkyarn": "echo \"$npm_execpath\" | grep -q \"yarn\\.js$\" || (echo '⚠️  Use yarn not npm! ⚠️ ' && echo && exit 1)",
+    "checkyarn": "echo \"$npm_execpath\" | grep -q \"yarn\\.js$\" || (echo ' ⚠️ Use yarn not npm! ⚠️ ' && echo && exit 1)",
     "analyze": "webpack --config ./webpack.config.prod.js --analyze",
-    "build:dev": "webpack --config ./webpack.config.dev.js -w",
+    "build:dev": "webpack-dev-server --config ./webpack.config.dev.js -w",
     "build:prod": "webpack --config ./webpack.config.prod.js",
-    "build": "npm-run-all -s build:prod",
-    "server": "webpack-dev-server",
-    "dev": "npm-run-all -p build:dev -s server",
+    "build": "run-s build:prod",
+    "dev": "run-p build:dev",
     "test": "jest --verbose --runInBand --no-cache --config",
     "lint": "tslint -c ./tslint.json --project ./ 'src/**/*/.ts*'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn lint"
+    }
   },
   "author": "",
   "license": "ISC",
@@ -71,6 +76,7 @@
   },
   "dependencies": {
     "core-js": "^3.1.4",
+    "husky": "^3.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.3.2"

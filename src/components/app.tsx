@@ -32,7 +32,7 @@ const Text: React.FC<Props> = styled(Title)`
 const ReverseText = (props: any): JSX.Element =>
 <p children={props.children.split('').reverse()}></p>
 
-const App = (): any => (
+export const App = (): any => (
   <>
     <Title subTitle>ssss</Title>
     <Text primary as="a" href="#">aiueo</Text>
@@ -41,5 +41,3 @@ const App = (): any => (
     <div className={style.inner}>Test</div> */}
   </>
 )
-
-export default App

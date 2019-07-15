@@ -6,12 +6,6 @@ const common = require('./webpack.config.common');
 const packageJSON = require('./package.json');
 
 module.exports = merge(common, {
-  // entry: {
-  //   app: './src/index.tsx',
-  // },
-  // entry: {
-  //   app: './src/index.tsx',
-  // },
   mode: 'production',
   devtool: false,
   output: {
