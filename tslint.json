@@ -7,15 +7,13 @@
       "avoid-escape",
       "jsx-double"
     ],
-    "traling-comma": [
+    "trailing-comma": [
       true,
       {
         "multiline": "always",
-        "singleline": "always"
+        "singleline": "never"
       }
     ],
-    "eofline": true,
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error"
+    "eofline": true
   }
 }
