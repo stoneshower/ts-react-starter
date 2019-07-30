@@ -52,23 +52,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.(pc|c)ss$/,
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: {
-                localIdentName: '[name]__[local]--[hash:base64:5]',
-              },
-            },
-          },
-          {
-            loader: 'postcss-loader',
-          },
-        ],
-      },
-      {
         test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
           {
@@ -114,6 +97,6 @@ module.exports = {
     new WebpackBuildNotifierPlugin(),
   ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', 'css'],
   },
 };

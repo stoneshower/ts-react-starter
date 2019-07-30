@@ -8,6 +8,30 @@ module.exports = merge(common, {
   output: {
     filename: `${packageJSON.name}-${packageJSON.version}.dev.js`,
   },
+  module: {
+    rules: [
+      {
+        test: /\.(pc|c)ss$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: {
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+              },
+            },
+          },
+          {
+            loader: 'postcss-loader',
+          },
+        ],
+      },
+    ]
+  },
   devServer: {
     contentBase: __dirname + '/dist',
     host: '0.0.0.0',

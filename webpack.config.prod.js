@@ -14,10 +14,20 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(pc|c)ss$/,
+        test: /\.(c|pc)ss$/,
         use: [
+          MiniCssExtractPlugin.loader,
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: {
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+              },
+            },
+          },
+          {
+            loader: 'postcss-loader',
           },
         ],
       },
@@ -26,7 +36,7 @@ module.exports = merge(common, {
   plugins: [
     new MiniCssExtractPlugin({
       filename: './style.css',
-      chunkFilename: '[id].css',
+      chunkFilename: '[name].css',
     }),
   ],
   optimization: {

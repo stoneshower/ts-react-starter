@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Counter from './counter'
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
 
 interface A<S, T> {
@@ -37,6 +38,7 @@ export const App = (): any => (
     <Title subTitle>ssss</Title>
     <Text primary as="a" href="#">aiueo</Text>
     <Text primary as={ReverseText} href="#">aiueo</Text>
+    <Counter />
     {/* <div className={style.outer}>Test</div>
     <div className={style.inner}>Test</div> */}
   </>

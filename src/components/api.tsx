@@ -18,16 +18,23 @@ const getApi = (URL: string) => {
 }
 
 const BankName = () => (
-  <div>
-    {
+  // <div>
+    // {
       getApi('https://demo0427586.mockable.io/bankname')
         .then(
-          (d: ApiData[]) => d.map((data: ApiData) => {
-            return <p>{data.bank_code}</p>
-          }),
-      )
-    }
-  </div>
+          (d: ApiData[]) => {
+            console.log(d)
+            return d.map((data: ApiData) => {
+              return <p>{data.bank_code}</p>
+            })
+            // return d.map((data: ApiData) => {
+            //   return <p>{data.bank_code}</p>
+            // })
+          },
+      // )
+    // }
+  // </div>
+  )
 )
 
 export default BankName
